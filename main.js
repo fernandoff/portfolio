@@ -120,29 +120,31 @@ document.head.appendChild(styleSheet);
 const contactForm = document.getElementById('contactForm');
 const formMsg     = document.getElementById('formMsg');
 
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+if (contactForm && formMsg) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-  const name    = contactForm.name.value.trim();
-  const email   = contactForm.email.value.trim();
-  const message = contactForm.message.value.trim();
+    const name    = contactForm.name.value.trim();
+    const email   = contactForm.email.value.trim();
+    const message = contactForm.message.value.trim();
 
-  if (!name || !email || !message) {
-    formMsg.style.color = 'var(--accent3)';
-    formMsg.textContent = 'Por favor, preencha todos os campos.';
-    return;
-  }
+    if (!name || !email || !message) {
+      formMsg.style.color = 'var(--accent3)';
+      formMsg.textContent = 'Por favor, preencha todos os campos.';
+      return;
+    }
 
-  // Compose mailto
-  const subject = encodeURIComponent(`Contato pelo portfolio — ${name}`);
-  const body    = encodeURIComponent(`Nome: ${name}\nE-mail: ${email}\n\n${message}`);
-  window.location.href = `mailto:fernando.cua@gmail.com?subject=${subject}&body=${body}`;
+    // Compose mailto
+    const subject = encodeURIComponent(`Contato pelo portfolio — ${name}`);
+    const body    = encodeURIComponent(`Nome: ${name}\nE-mail: ${email}\n\n${message}`);
+    window.location.href = `mailto:fernando.cua@gmail.com?subject=${subject}&body=${body}`;
 
-  formMsg.style.color = 'var(--accent2)';
-  formMsg.textContent = 'Abrindo seu cliente de e-mail...';
-  contactForm.reset();
-  setTimeout(() => { formMsg.textContent = ''; }, 5000);
-});
+    formMsg.style.color = 'var(--accent2)';
+    formMsg.textContent = 'Abrindo seu cliente de e-mail...';
+    contactForm.reset();
+    setTimeout(() => { formMsg.textContent = ''; }, 5000);
+  });
+}
 
 // ---------- SMOOTH SCROLL (fallback for older browsers) ----------
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
