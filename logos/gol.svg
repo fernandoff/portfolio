@@ -1,0 +1,8 @@
+<!-- GOL Linhas Aéreas -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" role="img" aria-label="GOL Linhas Aéreas">
+  <!-- Background laranja GOL -->
+  <rect width="200" height="80" rx="8" fill="#FF6600"/>
+  <!-- Texto GOL -->
+  <text x="100" y="52" font-family="Arial Black, Arial, sans-serif" font-size="38" font-weight="900"
+        text-anchor="middle" fill="#FFFFFF" letter-spacing="2">GOL</text>
+</svg>
